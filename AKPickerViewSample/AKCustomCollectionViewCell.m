@@ -13,14 +13,12 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-
-    self.roundedBackroundView.backgroundColor = [UIColor blueColor];
 }
 
 - (void)setSelected:(BOOL)selected
 {
     [super setSelected:selected];
-    NSLog(@"%@",@"IM SELECTED!");
+
     self.roundedBackroundView.backgroundColor = selected ? [UIColor blueColor] : [UIColor whiteColor];
     self.textLabel.textColor = selected ? [UIColor whiteColor] : [UIColor blackColor];
 }

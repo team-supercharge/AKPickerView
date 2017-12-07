@@ -14,6 +14,7 @@
 @interface AKViewController () <AKPickerViewDataSource, AKPickerViewDelegate>
 @property (nonatomic, strong) AKPickerView *pickerView;
 @property (nonatomic, strong) NSArray *titles;
+@property (nonatomic, strong) NSString *selectedValue;
 @end
 
 @implementation AKViewController
@@ -32,6 +33,7 @@
 	self.pickerView.highlightedFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
 	self.pickerView.interitemSpacing = 10.0;
 	self.pickerView.fisheyeFactor = 0.001;
+    self.pickerView.animateToCenterAfterScrollEnded = NO;
 	self.pickerView.pickerViewStyle = AKPickerViewStyleFlat;
 	self.pickerView.maskDisabled = false;
 
@@ -80,6 +82,7 @@
 
     cell.textLabel.text = _titles[indexPath.row];
     cell.roundedBackroundView.layer.cornerRadius = cell.roundedBackroundView.bounds.size.height / 2.0f;
+    cell.selected = [cell.textLabel.text isEqualToString:_selectedValue];
     return cell;
 }
 
@@ -95,6 +98,8 @@
 - (void)pickerView:(AKPickerView *)pickerView didSelectItem:(NSInteger)item
 {
 	NSLog(@"%@", self.titles[item]);
+    _selectedValue = self.titles[item];
+    [_pickerView reloadData];
 }
 
 

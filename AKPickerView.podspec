@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AKPickerView"
-  s.version      = "0.2.8"
+  s.version      = "0.2.9"
   s.summary      = "A simple yet customizable horizontal picker view."
 
   s.description  = <<-DESC

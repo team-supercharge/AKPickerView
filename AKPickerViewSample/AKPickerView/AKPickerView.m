@@ -181,9 +181,6 @@
 	[self invalidateIntrinsicContentSize];
 	[self.collectionView.collectionViewLayout invalidateLayout];
 	[self.collectionView reloadData];
-	if ([self.dataSource numberOfItemsInPickerView:self]) {
-		[self selectItem:self.selectedItem animated:NO notifySelection:NO];
-	}
 }
 
 - (CGFloat)offsetForItem:(NSUInteger)item
@@ -249,6 +246,9 @@
 {
     if (!_animateToCenterAfterScrollEnded)
     {
+        CGPoint center = [self convertPoint:self.collectionView.center toView:self.collectionView];
+        NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:center];
+        [self scrollToItem:indexPath.item animated:YES];
         return;
     }
 	switch (self.pickerViewStyle) {
@@ -364,7 +364,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	[self selectItem:indexPath.item animated:YES];
+    [self.delegate pickerView:self didSelectItem:indexPath.row];
+    [self scrollToItem:indexPath.row animated:YES];
 }
 
 #pragma mark -
