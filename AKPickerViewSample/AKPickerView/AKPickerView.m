@@ -33,7 +33,6 @@
 @end
 
 @interface AKPickerView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AKCollectionViewLayoutDelegate>
-@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, assign) NSUInteger selectedItem;
 @property (nonatomic, strong) AKPickerViewDelegateIntercepter *intercepter;
 - (CGFloat)offsetForItem:(NSUInteger)item;
@@ -248,6 +247,10 @@
 
 - (void)didEndScrolling
 {
+    if (!_animateToCenterAfterScrollEnded)
+    {
+        return;
+    }
 	switch (self.pickerViewStyle) {
 		case AKPickerViewStyleFlat: {
 			CGPoint center = [self convertPoint:self.collectionView.center toView:self.collectionView];
@@ -286,8 +289,15 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self.dataSource respondsToSelector:@selector(collectionView:cellForIndexPath:)])
+    {
+        return [self.dataSource collectionView:collectionView cellForIndexPath:indexPath];
+    }
+
 	AKCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([AKCollectionViewCell class])
 																		   forIndexPath:indexPath];
+
+
 
 	if ([self.dataSource respondsToSelector:@selector(pickerView:titleForItem:)]) {
 		NSString *title = [self.dataSource pickerView:self titleForItem:indexPath.item];
@@ -316,7 +326,8 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	CGSize size = CGSizeMake(self.interitemSpacing, collectionView.bounds.size.height);
-	if ([self.dataSource respondsToSelector:@selector(pickerView:titleForItem:)]) {
+	if ([self.dataSource respondsToSelector:@selector(pickerView:titleForItem:)]
+        || [self.dataSource respondsToSelector:@selector(collectionView:cellForIndexPath:)]) {
 		NSString *title = [self.dataSource pickerView:self titleForItem:indexPath.item];
 		size.width += [self sizeForString:title].width;
 		if ([self.delegate respondsToSelector:@selector(pickerView:marginForItem:)]) {
@@ -399,6 +410,9 @@
 
 - (void)initialize
 {
+//    self.backgroundColor = [UIColor blueColor];
+//    self.layer.cornerRadius = self.contentView.bounds.size.height / 2.0f;
+//    self.layer.masksToBounds = YES;
 	self.layer.doubleSided = NO;
 	self.label = [[UILabel alloc] initWithFrame:self.contentView.bounds];
 	self.label.backgroundColor = [UIColor clearColor];

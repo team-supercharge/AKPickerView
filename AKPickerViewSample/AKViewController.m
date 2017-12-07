@@ -9,6 +9,7 @@
 #import "AKViewController.h"
 
 #import "AKPickerView.h"
+#import "AKCustomCollectionViewCell.h"
 
 @interface AKViewController () <AKPickerViewDataSource, AKPickerViewDelegate>
 @property (nonatomic, strong) AKPickerView *pickerView;
@@ -29,9 +30,9 @@
 
 	self.pickerView.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
 	self.pickerView.highlightedFont = [UIFont fontWithName:@"HelveticaNeue" size:20];
-	self.pickerView.interitemSpacing = 20.0;
+	self.pickerView.interitemSpacing = 10.0;
 	self.pickerView.fisheyeFactor = 0.001;
-	self.pickerView.pickerViewStyle = AKPickerViewStyle3D;
+	self.pickerView.pickerViewStyle = AKPickerViewStyleFlat;
 	self.pickerView.maskDisabled = false;
 
 	self.titles = @[@"Tokyo",
@@ -46,6 +47,10 @@
 					@"Shizuoka"];
 
 	[self.pickerView reloadData];
+
+    [self.pickerView.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([AKCustomCollectionViewCell class])
+                                                    bundle:[NSBundle mainBundle]]
+          forCellWithReuseIdentifier:NSStringFromClass([AKCustomCollectionViewCell class])];
 }
 
 #pragma mark - AKPickerViewDataSource
@@ -66,6 +71,16 @@
 - (NSString *)pickerView:(AKPickerView *)pickerView titleForItem:(NSInteger)item
 {
 	return self.titles[item];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForIndexPath:(NSIndexPath *)indexPath;
+{
+    AKCustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([AKCustomCollectionViewCell class])
+                                                                                 forIndexPath:indexPath];
+
+    cell.textLabel.text = _titles[indexPath.row];
+    cell.roundedBackroundView.layer.cornerRadius = cell.roundedBackroundView.bounds.size.height / 2.0f;
+    return cell;
 }
 
 /*

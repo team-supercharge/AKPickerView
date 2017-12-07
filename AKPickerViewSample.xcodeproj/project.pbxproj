@@ -22,6 +22,8 @@
 		66B25010190018590021F045 /* AKPickerView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 66B2500F190018590021F045 /* AKPickerView.podspec */; };
 		66FB3E2E18F2A2200024CEDD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 66FB3E2B18F2A2200024CEDD /* LICENSE */; };
 		66FB3E3018F2A2200024CEDD /* Screenshot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 66FB3E2D18F2A2200024CEDD /* Screenshot.gif */; };
+		FEA917271FD931AF00C1126B /* AKCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA917251FD931AF00C1126B /* AKCustomCollectionViewCell.m */; };
+		FEA9172A1FD9359800C1126B /* AKCustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA917291FD9359800C1126B /* AKCustomCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,9 @@
 		66BEA9E319AA5BB4005F6407 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		66FB3E2B18F2A2200024CEDD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		66FB3E2D18F2A2200024CEDD /* Screenshot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Screenshot.gif; sourceTree = "<group>"; };
+		FEA917241FD931AF00C1126B /* AKCustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKCustomCollectionViewCell.h; sourceTree = "<group>"; };
+		FEA917251FD931AF00C1126B /* AKCustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKCustomCollectionViewCell.m; sourceTree = "<group>"; };
+		FEA917291FD9359800C1126B /* AKCustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AKCustomCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 				660F9EB818E6E9AC00EE7347 /* Images.xcassets */,
 				660AFE281A604C550078B21C /* Launch Screen.xib */,
 				660F9EA718E6E9AC00EE7347 /* Supporting Files */,
+				FEA917241FD931AF00C1126B /* AKCustomCollectionViewCell.h */,
+				FEA917251FD931AF00C1126B /* AKCustomCollectionViewCell.m */,
+				FEA917291FD9359800C1126B /* AKCustomCollectionViewCell.xib */,
 			);
 			path = AKPickerViewSample;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 				660F9EAB18E6E9AC00EE7347 /* InfoPlist.strings in Resources */,
 				66B25010190018590021F045 /* AKPickerView.podspec in Resources */,
 				66FB3E2E18F2A2200024CEDD /* LICENSE in Resources */,
+				FEA9172A1FD9359800C1126B /* AKCustomCollectionViewCell.xib in Resources */,
 				66FB3E3018F2A2200024CEDD /* Screenshot.gif in Resources */,
 				660AFE291A604C550078B21C /* Launch Screen.xib in Resources */,
 				660F9EB418E6E9AC00EE7347 /* Main.storyboard in Resources */,
@@ -208,6 +217,7 @@
 				660F9EB718E6E9AC00EE7347 /* AKViewController.m in Sources */,
 				660F9EDB18E6EA4800EE7347 /* AKPickerView.m in Sources */,
 				660F9EAD18E6E9AC00EE7347 /* main.m in Sources */,
+				FEA917271FD931AF00C1126B /* AKCustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

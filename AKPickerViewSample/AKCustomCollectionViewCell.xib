@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AKCustomCollectionViewCell" id="EYh-yO-qxr" customClass="AKCustomCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="562" height="233"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="562" height="233"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4l-d7-qqe">
+                        <rect key="frame" x="255" y="104.5" width="52" height="24.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-DY-DOD">
+                                <rect key="frame" x="5" y="2" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QBp-DY-DOD" firstAttribute="top" secondItem="X4l-d7-qqe" secondAttribute="top" constant="2" id="02X-vP-5JJ"/>
+                            <constraint firstAttribute="bottom" secondItem="QBp-DY-DOD" secondAttribute="bottom" constant="2" id="CPm-b0-oGm"/>
+                            <constraint firstItem="QBp-DY-DOD" firstAttribute="leading" secondItem="X4l-d7-qqe" secondAttribute="leading" constant="5" id="ZFV-3N-t2P"/>
+                            <constraint firstAttribute="trailing" secondItem="QBp-DY-DOD" secondAttribute="trailing" constant="5" id="ytp-Xp-WNF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="X4l-d7-qqe" firstAttribute="centerX" secondItem="EYh-yO-qxr" secondAttribute="centerX" id="a7q-2h-bma"/>
+                <constraint firstItem="X4l-d7-qqe" firstAttribute="centerY" secondItem="EYh-yO-qxr" secondAttribute="centerY" id="qas-J5-nwa"/>
+            </constraints>
+            <size key="customSize" width="562" height="233"/>
+            <connections>
+                <outlet property="roundedBackroundView" destination="X4l-d7-qqe" id="Cfp-Rp-dfg"/>
+                <outlet property="textLabel" destination="QBp-DY-DOD" id="cun-Ir-MHG"/>
+            </connections>
+            <point key="canvasLocation" x="-229" y="-243.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

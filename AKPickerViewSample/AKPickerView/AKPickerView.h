@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, AKPickerViewStyle) {
 @required
 - (NSUInteger)numberOfItemsInPickerView:(AKPickerView *)pickerView;
 @optional
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)pickerView:(AKPickerView *)pickerView titleForItem:(NSInteger)item;
 - (UIImage *)pickerView:(AKPickerView *)pickerView imageForItem:(NSInteger)item;
 @end
@@ -34,12 +35,14 @@ typedef NS_ENUM(NSInteger, AKPickerViewStyle) {
 
 @property (nonatomic, weak) id <AKPickerViewDataSource> dataSource;
 @property (nonatomic, weak) id <AKPickerViewDelegate> delegate;
+@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, strong) UIFont *highlightedFont;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIColor *highlightedTextColor;
 @property (nonatomic, assign) CGFloat interitemSpacing;
 @property (nonatomic, assign) CGFloat fisheyeFactor; // 0...1; slight value recommended such as 0.0001
+@property (nonatomic, assign) BOOL animateToCenterAfterScrollEnded;
 @property (nonatomic, assign, getter=isMaskDisabled) BOOL maskDisabled;
 @property (nonatomic, assign) AKPickerViewStyle pickerViewStyle;
 @property (nonatomic, assign, readonly) NSUInteger selectedItem;
