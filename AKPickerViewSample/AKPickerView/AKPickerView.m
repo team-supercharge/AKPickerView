@@ -250,6 +250,7 @@
     {
         return;
     }
+
 	switch (self.pickerViewStyle) {
 		case AKPickerViewStyleFlat: {
 			CGPoint center = [self convertPoint:self.collectionView.center toView:self.collectionView];
