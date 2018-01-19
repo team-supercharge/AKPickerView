@@ -35,7 +35,9 @@
 	self.pickerView.fisheyeFactor = 0.001;
     self.pickerView.animateToCenterAfterScrollEnded = NO;
 	self.pickerView.pickerViewStyle = AKPickerViewStyleFlat;
-	self.pickerView.maskDisabled = false;
+	self.pickerView.maskDisabled = YES;
+    self.pickerView.animateToCenterWhenSelected = NO;
+    self.pickerView.centered = NO;
 
 	self.titles = @[@"Tokyo",
 					@"Kanagawa",
