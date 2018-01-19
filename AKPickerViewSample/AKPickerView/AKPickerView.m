@@ -50,6 +50,8 @@
 	self.highlightedTextColor = self.highlightedTextColor ?: [UIColor blackColor];
 	self.pickerViewStyle = self.pickerViewStyle ?: AKPickerViewStyle3D;
 	self.maskDisabled = self.maskDisabled;
+    self.animateToCenterWhenSelected = YES;
+    self.centered = YES;
 
 	[self.collectionView removeFromSuperview];
 	self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds
@@ -353,6 +355,11 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
+    if (!_centered)
+    {
+        return UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+
 	NSInteger number = [self collectionView:collectionView numberOfItemsInSection:section];
 	NSIndexPath *firstIndexPath = [NSIndexPath indexPathForItem:0 inSection:section];
 	CGSize firstSize = [self collectionView:collectionView layout:collectionViewLayout sizeForItemAtIndexPath:firstIndexPath];
@@ -365,7 +372,10 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate pickerView:self didSelectItem:indexPath.row];
-    [self scrollToItem:indexPath.row animated:YES];
+    if (_animateToCenterWhenSelected)
+    {
+        [self scrollToItem:indexPath.row animated:YES];
+    }
 }
 
 #pragma mark -
